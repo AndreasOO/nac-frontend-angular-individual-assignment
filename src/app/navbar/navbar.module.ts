@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import {RouterLink} from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     NavbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLink
   ]
 })
 export class NavbarModule { }

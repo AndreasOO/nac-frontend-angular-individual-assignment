@@ -1,7 +1,7 @@
 <div class="container bg-secondary">
-  <h2 class="py-2">Order items</h2>
+  <h2 class="py-2 border-bottom">Order items</h2>
   <ul class="list-group" id="orderSummary">
-    <li *ngFor="let item of shoppingCart" class="list-group-item bg-light text-black m-1">
+    <li *ngFor="let item of shoppingCart" class="list-group-item bg-secondary py-1 border-0 border-bottom">
       <p>{{item.title}}</p>
       <p>Price: {{item.price}}</p>
     </li>

@@ -1,0 +1,32 @@
+<section>
+
+  <div class="modal fade" id="shoppingCartModal" tabindex="-1" role="dialog" aria-labelledby="shoppingCartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" >
+      <div class="modal-content bg-secondary">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shoppingCartModalLabel">Shopping Cart</h5>
+        </div>
+
+        <div class="container bg-secondary">
+          <h6 class="py-2">Order items</h6>
+          <ul class="list-group" id="orderSummary">
+            <li *ngFor="let item of shoppingCart" class="list-group-item bg-light text-black m-1">
+              <p>{{item.title}}</p>
+              <p>Price: {{item.price}}</p>
+            </li>
+          </ul>
+          <hr>
+          <h5>Total Price: {{totalPrice}}</h5>
+          <ul class="list-group list-group-horizontal" id="totalPrice">
+          </ul>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back to shop</button>
+          <a [routerLink]="['/checkout']" data-bs-dismiss="modal" class="btn btn-primary">Proceed to Checkout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

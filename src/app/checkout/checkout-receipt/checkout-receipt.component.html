@@ -1,0 +1,16 @@
+<div class="container bg-secondary">
+  <h2 class="py-2">Congratulations on your purchase</h2>
+  <h4 class="py-2 border-bottom">Receipt</h4>
+  <ul class="list-group" id="orderSummary">
+    <li *ngFor="let item of shoppingCart" class="list-group-item bg-secondary py-1 border-0 border-bottom">
+      <p>{{item.title}}</p>
+      <p>Price: {{item.price}}</p>
+    </li>
+  </ul>
+  <hr>
+  <h3>Total Price: {{totalPrice}}</h3>
+  <ul class="list-group list-group-horizontal" id="totalPrice">
+  </ul>
+
+  <hr>
+</div>

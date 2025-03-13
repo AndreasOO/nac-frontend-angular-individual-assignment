@@ -1,68 +1,19 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import {Product} from '../../products/product';
-import {Router} from '@angular/router';
-
 
 @Component({
-  selector: 'app-checkout-view',
+  selector: 'app-checkout-receipt',
   standalone: false,
-  templateUrl: './checkout-view.component.html',
-  styleUrl: './checkout-view.component.css'
+  templateUrl: './checkout-receipt.component.html',
+  styleUrl: './checkout-receipt.component.css'
 })
-export class CheckoutViewComponent implements OnInit {
+export class CheckoutReceiptComponent implements OnInit {
+
   shoppingCart:Product[] | undefined
   totalPrice:number | undefined
 
-  constructor(private router:Router) {
+  constructor() {
   }
-
-  public shippingForm = new FormGroup({
-    name: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^[a-zA-ZåäöÅÄÖ ]{2,50}$')]}),
-    email: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^([a-zA-Z0-9._-]+@\\w+\\.\\w+){1,50}$')]}),
-    phone: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^[0-9-()]+$')]}),
-    street: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^^[a-zA-ZåäöÅÄÖ0-9 ]{2,50}$')]}),
-    postalCode: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*$')]}),
-    postalArea: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^[a-zA-ZåäöÅÄÖ ]{2,50}$')]})
-  })
-
-  public validateAndSubmit() {
-    if (this.shippingForm.valid) {
-      // Add routing here
-      // clear cart local storage in receipt on init? After getting data and loading model
-      console.log("no errors - submit");
-      this.router.navigate(['/receipt'])
-    } else {
-      console.log("found errors");
-    }
-  }
-
-  public get nameTouched() {
-    return this.shippingForm.controls.name.touched
-  }
-
-  public get emailTouched() {
-    return this.shippingForm.controls.email.touched
-  }
-
-  public get phoneTouched() {
-    return this.shippingForm.controls.phone.touched
-  }
-
-  public get streetTouched() {
-    return this.shippingForm.controls.street.touched
-  }
-  public get postalCodeTouched() {
-    return this.shippingForm.controls.postalCode.touched
-  }
-
-  public get postalAreaTouched() {
-    return this.shippingForm.controls.postalArea.touched
-  }
-
-
-
-
 
   // TODO CHECK IF WE CAN GET DATA FROM SHOPPING CART COMPONENT
   ngOnInit() {
@@ -80,6 +31,4 @@ export class CheckoutViewComponent implements OnInit {
     ]
     this.totalPrice = Math.round(this.shoppingCart.map(prod => prod.price).reduce((x,y) => x+y)*100)/100;
   }
-
-
 }

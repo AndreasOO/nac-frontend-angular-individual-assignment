@@ -3,6 +3,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CheckoutViewComponent } from './checkout-view/checkout-view.component';
 import { CheckoutReceiptComponent } from './checkout-receipt/checkout-receipt.component';
+import {RouterLink} from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { CheckoutReceiptComponent } from './checkout-receipt/checkout-receipt.co
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ]
 })
 export class CheckoutModule { }

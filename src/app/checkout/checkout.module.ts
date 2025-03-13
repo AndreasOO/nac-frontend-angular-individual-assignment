@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CheckoutViewComponent } from './checkout-view/checkout-view.component';
 
@@ -9,7 +10,8 @@ import { CheckoutViewComponent } from './checkout-view/checkout-view.component';
     CheckoutViewComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ]
 })
 export class CheckoutModule { }

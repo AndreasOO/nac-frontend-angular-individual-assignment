@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Product} from '../../products/product';
+
 
 @Component({
   selector: 'app-checkout-view',
@@ -10,6 +12,22 @@ import {Product} from '../../products/product';
 export class CheckoutViewComponent implements OnInit {
   shoppingCart:Product[] | undefined
   totalPrice:number | undefined
+
+  public shippingForm = new FormGroup({
+    //TODO ADD REGXPS
+    name: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^[a-zA-ZåäöÅÄÖ ]{2,50}$')]}),
+    email: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^([a-zA-Z0-9._-]+@\\w+\\.\\w+){1,50}$')]}),
+    phone: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^[0-9-()]+$')]}),
+    street: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^^[a-zA-ZåäöÅÄÖ0-9 ]{2,50}$')]}),
+    postalCode: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*\\d\\s*$')]}),
+    postalArea: new FormControl('', { nonNullable:true, validators: [Validators.required, Validators.pattern('^[a-zA-ZåäöÅÄÖ ]{2,50}$')]})
+  })
+
+  public validateAndSubmit() {
+    console.log("submit");
+  }
+
+
   constructor() {
   }
 
@@ -29,4 +47,6 @@ export class CheckoutViewComponent implements OnInit {
     ]
     this.totalPrice = Math.round(this.shoppingCart.map(prod => prod.price).reduce((x,y) => x+y)*100)/100;
   }
+
+
 }

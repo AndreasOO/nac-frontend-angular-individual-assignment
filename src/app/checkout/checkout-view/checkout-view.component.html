@@ -16,56 +16,56 @@
 
 <div class="container pt-5">
   <h2>Shipping information</h2>
-<form class="p-3">
+<form [formGroup]="shippingForm" class="p-3" (ngSubmit)="validateAndSubmit()">
   <div class="mb-3">
     <!-- Add js validation on each input element - then add class is-invalid   if validation fail-->
-    <label for="validationCustomerName" class="form-label">Name</label>
+    <label for="name" class="form-label">Name</label>
     <div class="input-group has-validation">
-      <input type="text" class="form-control is-invalid" id="validationCustomerName" required>
-      <div class="invalid-feedback text-light">Please enter a name between 2 and 50 characters.</div>
+      <input type="text" class="form-control" id="name" formControlName="name" required>
     </div>
+    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.name.invalid" >Please enter a name between 2 and 50 characters.</span>
   </div>
 
   <div class="mb-3">
-    <label for="validationCustomerEmail" class="form-label">Email</label>
+    <label for="email" class="form-label">Email</label>
     <div class="input-group has-validation">
-      <input type="email" class="form-control is-invalid" id="validationCustomerEmail" required>
-      <div class="invalid-feedback text-light">Please an email with &#64; and maximum 50 characters.</div>
+      <input type="email" class="form-control" id="email" formControlName="email" required>
     </div>
-  </div>
-
-
-  <div class="mb-3">
-    <label for="validationCustomerPhone" class="form-label">Phone</label>
-    <div class="input-group has-validation">
-      <input type="text" class="form-control is-invalid" id="validationCustomerPhone" required>
-      <div class="invalid-feedback text-light">Phone numbers can only contain numbers, hyphens and parameters.</div>
-    </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="validationCustomerStreetAddress" class="form-label">Street</label>
-    <div class="input-group has-validation">
-      <input type="text" class="form-control is-invalid" id="validationCustomerStreetAddress"  required>
-      <div class="invalid-feedback text-light">Please enter a street name between 2 and 50 characters.</div>
-    </div>
+    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.email.invalid">Please an email with &#64; and maximum 50 characters.</span>
   </div>
 
 
   <div class="mb-3">
-    <label for="validationCustomerPostalCode" class="form-label">Postal Code</label>
+    <label for="phone" class="form-label">Phone</label>
     <div class="input-group has-validation">
-      <input type="text" class="form-control is-invalid" id="validationCustomerPostalCode" required>
-      <div class="invalid-feedback text-light">Please enter a postal code of 5 characters.</div>
+      <input type="text" class="form-control" id="phone" formControlName="phone" required>
     </div>
+    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.phone.invalid">Phone numbers can only contain numbers, hyphens and parameters.</span>
   </div>
 
   <div class="mb-3">
-    <label for="validationCustomerPostalArea" class="form-label">Postal Area</label>
+    <label for="street" class="form-label">Street</label>
     <div class="input-group has-validation">
-      <input type="text" class="form-control is-invalid" id="validationCustomerPostalArea" required>
-      <div class="invalid-feedback text-light">Please enter a postal area between 2 and 50 characters.</div>
+      <input type="text" class="form-control" id="street" formControlName="street" required>
     </div>
+    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.street.invalid">Please enter a street name between 2 and 50 characters.</span>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="postalCode" class="form-label">Postal Code</label>
+    <div class="input-group has-validation">
+      <input type="text" class="form-control" id="postalCode" formControlName="postalCode" required>
+    </div>
+    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.postalCode.invalid">Please enter a postal code of 5 characters.</span>
+  </div>
+
+  <div class="mb-3">
+    <label for="postalArea" class="form-label">Postal Area</label>
+    <div class="input-group has-validation">
+      <input type="text" class="form-control" id="postalArea" formControlName="postalArea" required>
+    </div>
+    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.postalArea.invalid">Please enter a postal area between 2 and 50 characters.</span>
   </div>
 
 

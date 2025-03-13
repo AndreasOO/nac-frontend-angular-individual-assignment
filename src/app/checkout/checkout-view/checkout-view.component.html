@@ -18,12 +18,11 @@
   <h2>Shipping information</h2>
 <form [formGroup]="shippingForm" class="p-3" (ngSubmit)="validateAndSubmit()">
   <div class="mb-3">
-    <!-- Add js validation on each input element - then add class is-invalid   if validation fail-->
     <label for="name" class="form-label">Name</label>
     <div class="input-group has-validation">
       <input type="text" class="form-control" id="name" formControlName="name" required>
     </div>
-    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.name.invalid" >Please enter a name between 2 and 50 characters.</span>
+    <span class="text-danger-emphasis" *ngIf="nameTouched && shippingForm.controls.name.invalid" >Please enter a name between 2 and 50 characters.</span>
   </div>
 
   <div class="mb-3">
@@ -31,7 +30,7 @@
     <div class="input-group has-validation">
       <input type="email" class="form-control" id="email" formControlName="email" required>
     </div>
-    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.email.invalid">Please an email with &#64; and maximum 50 characters.</span>
+    <span class="text-danger-emphasis" *ngIf="emailTouched && shippingForm.controls.email.invalid">Please an email with &#64; and maximum 50 characters.</span>
   </div>
 
 
@@ -40,7 +39,7 @@
     <div class="input-group has-validation">
       <input type="text" class="form-control" id="phone" formControlName="phone" required>
     </div>
-    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.phone.invalid">Phone numbers can only contain numbers, hyphens and parameters.</span>
+    <span class="text-danger-emphasis" *ngIf="phoneTouched && shippingForm.controls.phone.invalid">Phone numbers can only contain numbers, hyphens and parameters.</span>
   </div>
 
   <div class="mb-3">
@@ -48,7 +47,7 @@
     <div class="input-group has-validation">
       <input type="text" class="form-control" id="street" formControlName="street" required>
     </div>
-    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.street.invalid">Please enter a street name between 2 and 50 characters.</span>
+    <span class="text-danger-emphasis" *ngIf="streetTouched && shippingForm.controls.street.invalid">Please enter a street name between 2 and 50 characters.</span>
   </div>
 
 
@@ -57,7 +56,7 @@
     <div class="input-group has-validation">
       <input type="text" class="form-control" id="postalCode" formControlName="postalCode" required>
     </div>
-    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.postalCode.invalid">Please enter a postal code of 5 characters.</span>
+    <span class="text-danger-emphasis" *ngIf="postalCodeTouched && shippingForm.controls.postalCode.invalid">Please enter a postal code of 5 characters.</span>
   </div>
 
   <div class="mb-3">
@@ -65,7 +64,7 @@
     <div class="input-group has-validation">
       <input type="text" class="form-control" id="postalArea" formControlName="postalArea" required>
     </div>
-    <span class="text-danger-emphasis" *ngIf="shippingForm.controls.postalArea.invalid">Please enter a postal area between 2 and 50 characters.</span>
+    <span class="text-danger-emphasis" *ngIf="postalAreaTouched && shippingForm.controls.postalArea.invalid">Please enter a postal area between 2 and 50 characters.</span>
   </div>
 
 

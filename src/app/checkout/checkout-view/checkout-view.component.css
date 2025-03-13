@@ -1,8 +1,13 @@
+/*input.ng-dirty.ng-touched {*/
+/*  border: 3px solid blue;*/
+/*}*/
+
 input.ng-dirty.ng-valid {
   border: 2px solid green;
 }
 
-input.ng-dirty.ng-invalid {
+
+input.ng-invalid.ng-touched {
   border: 2px solid red;
 }
 

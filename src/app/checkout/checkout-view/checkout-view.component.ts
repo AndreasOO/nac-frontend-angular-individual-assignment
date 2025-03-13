@@ -27,6 +27,30 @@ export class CheckoutViewComponent implements OnInit {
     console.log("submit");
   }
 
+  public get nameTouched() {
+    return this.shippingForm.controls.name.touched
+  }
+
+  public get emailTouched() {
+    return this.shippingForm.controls.email.touched
+  }
+
+  public get phoneTouched() {
+    return this.shippingForm.controls.phone.touched
+  }
+
+  public get streetTouched() {
+    return this.shippingForm.controls.street.touched
+  }
+  public get postalCodeTouched() {
+    return this.shippingForm.controls.postalCode.touched
+  }
+
+  public get postalAreaTouched() {
+    return this.shippingForm.controls.postalArea.touched
+  }
+
+
 
   constructor() {
   }

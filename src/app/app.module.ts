@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import {NavbarModule} from './navbar/navbar.module';
 import {ProductsModule} from './products/products.module';
 import {CheckoutModule} from './checkout/checkout.module';
+import {FooterModule} from './footer/footer.module';
+import {ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {CheckoutModule} from './checkout/checkout.module';
     AppRoutingModule,
     NavbarModule,
     ProductsModule,
-    CheckoutModule
+    FooterModule,
+    CheckoutModule,
+    ShoppingCartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

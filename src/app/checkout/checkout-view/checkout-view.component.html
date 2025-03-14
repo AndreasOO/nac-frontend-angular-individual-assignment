@@ -4,7 +4,7 @@
     <li *ngFor="let item of shoppingCart" class=" bg-secondary py-1 border-0 border-bottom row">
       <p class="col-6">{{item.title}}</p>
       <p class="col-3">Price: {{item.price}}</p>
-      <a href="#" class="btn btn-close btn-danger col-3"></a>
+      <a (click)="removeItemAtIndex(shoppingCart!.indexOf(item))" class="btn btn-close btn-danger col-3"></a>
     </li>
   </ul>
   <hr>

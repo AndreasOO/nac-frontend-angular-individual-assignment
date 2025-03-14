@@ -29,12 +29,9 @@ export class CheckoutViewComponent implements OnInit {
 
   public validateAndSubmit() {
     if (this.shippingForm.valid) {
-      // Add routing here
-      // clear cart local storage in receipt on init? After getting data and loading model
-      console.log("no errors - submit");
       this.router.navigate(['/receipt'])
     } else {
-      // add alert if errors
+      alert("Please fill in the required form in order to continue")
       console.log("found errors");
     }
   }
@@ -63,7 +60,9 @@ export class CheckoutViewComponent implements OnInit {
   }
 
 
-
+  public removeItemAtIndex(index:number) {
+    this.storage.removeItemFromCart(index)
+  }
 
 
 

@@ -17,8 +17,6 @@ export class ProductViewComponent implements OnInit {
     }
 
     addProductToCart(product:Product) {
-      const currentCart:Product[] = this.storage.getCartItemsFromStorage();
-      console.log(currentCart);
       this.storage.addItemToCart(product)
     }
 

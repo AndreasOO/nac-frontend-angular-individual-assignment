@@ -15,8 +15,11 @@ export class CartModalComponent implements OnInit {
   constructor(public storage:CartLocalStorageService) {
   }
 
+  public removeItemAtIndex(index:number) {
+    this.storage.removeItemFromCart(index)
+  }
+
   ngOnInit() {
-    // check if local storage contains cart -> if yes then get them, if no then create empty list
     this.storage.currentCartItems.subscribe(cartItems => this.shoppingCart = cartItems)
     this.storage.currentCartItems.subscribe(cartItems => this.totalPrice =
       Math.round(cartItems.map(prod => prod.price).reduce((y,x) => x+y,0)*100)/100)

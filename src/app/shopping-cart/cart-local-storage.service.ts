@@ -19,21 +19,28 @@ export class CartLocalStorageService {
     this.data.next(currentCart);
   }
 
-  public updateCartItems(products:Product[]) {
+  public removeItemFromCart(index:number) {
+    const currentCart:Product[] = this.getCartItemsFromStorage();
+    currentCart.splice(index,1)
+    this.updateCartItems(currentCart);
+    this.data.next(currentCart);
+  }
+
+  public clearCart() {
+    localStorage.clear()
+    this.data.next(this.getCartItemsFromStorage());
+  }
+
+  private updateCartItems(products:Product[]) {
     localStorage.setItem("cartItems", JSON.stringify(products));
   }
 
-  public getCartItemsFromStorage():Product[] {
+  private getCartItemsFromStorage():Product[] {
     const cartItems = localStorage.getItem("cartItems");
     if (cartItems) {
       return JSON.parse(localStorage.getItem("cartItems")!) as Product[]
     } else {
       return [] as Product[]
     }
-  }
-
-  public clearCart() {
-    localStorage.clear()
-    this.data.next(this.getCartItemsFromStorage());
   }
 }

@@ -12,6 +12,6 @@
 
   <hr>
   <div class="container">
-  <a [routerLink]="['/products']"  class="btn btn-lg col-12 bg-gradient text-light">Back to shop</a>
+  <a [routerLink]="['/products']" (click)="this.storage.clearCart()" class="btn btn-lg col-12 bg-gradient text-light">Back to shop</a>
   </div>
 </div>

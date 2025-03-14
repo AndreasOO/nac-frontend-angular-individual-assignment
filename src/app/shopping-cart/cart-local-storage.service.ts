@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Product} from '../products/product';
+import {Observable, BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartLocalStorageService {
-
+  private data = new BehaviorSubject(this.getCartItemsFromStorage())
+  public currentCartItems = this.data.asObservable()
 
   constructor() { }
 
@@ -14,6 +16,7 @@ export class CartLocalStorageService {
     const currentCart:Product[] = this.getCartItemsFromStorage();
     currentCart.push(product);
     this.updateCartItems(currentCart);
+    this.data.next(currentCart);
   }
 
   public updateCartItems(products:Product[]) {
@@ -31,5 +34,6 @@ export class CartLocalStorageService {
 
   public clearCart() {
     localStorage.clear()
+    this.data.next(this.getCartItemsFromStorage());
   }
 }

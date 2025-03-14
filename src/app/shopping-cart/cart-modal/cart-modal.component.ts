@@ -18,6 +18,6 @@ export class CartModalComponent implements OnInit {
   ngOnInit() {
     // check if local storage contains cart -> if yes then get them, if no then create empty list
     this.shoppingCart = this.storage.getCartItemsFromStorage()
-    this.totalPrice = Math.round(this.shoppingCart.map(prod => prod.price).reduce((x,y) => x+y)*100)/100;
+    this.totalPrice = Math.round(this.shoppingCart.map(prod => prod.price).reduce((x,y) => x+y, 0)*100)/100;
   }
 }

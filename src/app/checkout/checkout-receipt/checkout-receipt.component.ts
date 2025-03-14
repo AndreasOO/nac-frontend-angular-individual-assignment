@@ -18,8 +18,9 @@ export class CheckoutReceiptComponent implements OnInit {
 
 
   ngOnInit() {
-    this.shoppingCart = this.shoppingCart = this.storage.getCartItemsFromStorage()
-    this.totalPrice = Math.round(this.shoppingCart.map(prod => prod.price).reduce((x,y) => x+y)*100)/100;
-    this.storage.clearCart()
+    this.shoppingCart = this.shoppingCart = this.storage.getCartItemsFromStorage();
+    this.totalPrice = Math.round(this.shoppingCart.map(prod => prod.price)
+                                                  .reduce((x,y) => x+y, 0)*100)/100;
+    this.storage.clearCart();
   }
 }

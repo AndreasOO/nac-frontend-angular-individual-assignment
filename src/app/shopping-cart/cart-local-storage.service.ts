@@ -9,6 +9,7 @@ export class CartLocalStorageService {
 
   constructor() { }
 
+
   public addItemToCart(product:Product) {
     const currentCart:Product[] = this.getCartItemsFromStorage();
     currentCart.push(product);
@@ -26,5 +27,9 @@ export class CartLocalStorageService {
     } else {
       return [] as Product[]
     }
+  }
+
+  public clearCart() {
+    localStorage.clear()
   }
 }

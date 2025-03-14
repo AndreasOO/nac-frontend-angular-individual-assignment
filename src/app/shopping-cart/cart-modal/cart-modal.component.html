@@ -8,18 +8,17 @@
         </div>
 
         <div class="container bg-secondary">
-          <h6 class="py-2">Order items</h6>
+          <h2 class="py-2 border-bottom">Order items</h2>
           <ul class="list-group" id="orderSummary">
-            <li *ngFor="let item of shoppingCart" class="list-group-item bg-light text-black m-1">
-              <p>{{item.title}}</p>
-              <p>Price: {{item.price}}</p>
+            <li *ngFor="let item of shoppingCart" class=" bg-secondary py-1 border-0 border-bottom row">
+              <p class="col-6">{{item.title}}</p>
+              <p class="col-3">Price: {{item.price}}</p>
+              <a href="#" class="btn btn-close btn-danger col-3"></a>
             </li>
           </ul>
           <hr>
-          <h5>Total Price: {{totalPrice}}</h5>
-          <ul class="list-group list-group-horizontal" id="totalPrice">
-          </ul>
-
+          <h3>Total Price: {{totalPrice}}</h3>
+          <hr>
         </div>
 
         <div class="modal-footer">

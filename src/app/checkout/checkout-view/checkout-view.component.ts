@@ -33,6 +33,7 @@ export class CheckoutViewComponent implements OnInit {
       console.log("no errors - submit");
       this.router.navigate(['/receipt'])
     } else {
+      // add alert if errors
       console.log("found errors");
     }
   }

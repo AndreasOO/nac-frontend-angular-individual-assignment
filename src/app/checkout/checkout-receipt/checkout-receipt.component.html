@@ -1,17 +1,7 @@
 <div class="container bg-secondary">
-  <h2 class="py-2">Congratulations on your purchase</h2>
-  <h4 class="py-2 border-bottom">Receipt</h4>
-  <ul class="list-group" id="orderSummary">
-    <li *ngFor="let item of shoppingCart" class="list-group-item bg-secondary py-1 border-0 border-bottom">
-      <p>{{item.title}}</p>
-      <p>Price: {{item.price}}</p>
-    </li>
-  </ul>
-  <hr>
-  <h3>Total Price: {{totalPrice}}</h3>
-
+  <h2 class="py-2 text-center">Congratulations on your purchase</h2>
   <hr>
   <div class="container">
-  <a [routerLink]="['/products']" (click)="this.storage.clearCart()" class="btn btn-lg col-12 bg-gradient text-light">Back to shop</a>
+  <a [routerLink]="['/products']" class="btn btn-lg col-12 bg-gradient text-light">Back to shop</a>
   </div>
 </div>

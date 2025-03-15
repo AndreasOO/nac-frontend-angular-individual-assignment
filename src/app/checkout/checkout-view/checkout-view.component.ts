@@ -14,6 +14,7 @@ import {CartLocalStorageService} from '../../shopping-cart/cart-local-storage.se
 export class CheckoutViewComponent implements OnInit {
   shoppingCart:Product[] | undefined
   totalPrice:number | undefined
+  itemCountMap:Map<number,number> | undefined
 
   constructor(private router:Router, public storage:CartLocalStorageService) {
   }
@@ -60,16 +61,32 @@ export class CheckoutViewComponent implements OnInit {
   }
 
 
-  public removeItemAtIndex(index:number) {
-    this.storage.removeItemFromCart(index)
+  public addItem(item:Product) {
+    this.storage.addItemToCart(item)
+  }
+
+  public removeItem(item:Product) {
+    this.storage.removeItemFromCart(item)
+  }
+
+  public clearCart() {
+    this.storage.clearCart()
   }
 
 
 
   ngOnInit() {
-    this.storage.currentCartItems.subscribe(cartItems => this.shoppingCart = cartItems)
+    this.storage.currentCartItems.subscribe(cartItems => this.shoppingCart =
+      cartItems.filter((v, i, a) => a.map(({ id }) => id).indexOf(v.id) === i));
+
     this.storage.currentCartItems.subscribe(cartItems => this.totalPrice =
-      Math.round(cartItems.map(prod => prod.price).reduce((y,x) => x+y,0)*100)/100)
+      Math.round(cartItems.map(prod => prod.price).reduce((y,x) => x+y,0)*100)/100);
+
+    this.storage.currentCartItems.subscribe(cartItems => this.itemCountMap =
+      cartItems.reduce((acc, item) => {
+        acc.set(item.id, acc.has(item.id) ? acc.get(item.id) +1 : 1);
+        return acc;
+      }, new Map()));
   }
 
 

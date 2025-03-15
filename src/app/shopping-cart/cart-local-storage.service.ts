@@ -19,8 +19,16 @@ export class CartLocalStorageService {
     this.data.next(currentCart);
   }
 
-  public removeItemFromCart(index:number) {
+  public removeItemFromCartByIndex(index:number) {
     const currentCart:Product[] = this.getCartItemsFromStorage();
+    currentCart.splice(index,1)
+    this.updateCartItems(currentCart);
+    this.data.next(currentCart);
+  }
+
+  public removeItemFromCart(item:Product) {
+    const currentCart:Product[] = this.getCartItemsFromStorage();
+    const index = currentCart.indexOf(item)
     currentCart.splice(index,1)
     this.updateCartItems(currentCart);
     this.data.next(currentCart);

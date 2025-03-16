@@ -5,10 +5,10 @@ import {CartLocalStorageService} from '../cart-local-storage.service';
 @Component({
   selector: 'app-shopping-cart',
   standalone: false,
-  templateUrl: './shopping-cart.component.html',
-  styleUrl: './shopping-cart.component.css'
+  templateUrl: './cart-button.component.html',
+  styleUrl: './cart-button.component.css'
 })
-export class ShoppingCartComponent implements OnInit {
+export class CartButtonComponent implements OnInit {
   numberOfItemsInCart:number | undefined
   constructor(public storage:CartLocalStorageService) {
   }

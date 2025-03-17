@@ -15,7 +15,8 @@ import {ShoppingCartModule} from '../shopping-cart/shopping-cart.module';
     CartModalComponent
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    CartModalComponent
   ],
   imports: [
     CommonModule,
